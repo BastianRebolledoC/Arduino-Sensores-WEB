@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graficos Arduino</title>
+    <link rel="icon" href="img/logo.png" type="image/x-icon" />
+    <!-- tailwind -->
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div
+      class="
+        font-mono
+        bg-blue-50
+        px-5
+        xl:px-32
+        2xl:px-96
+        pt-7
+        xl:pt-12
+        text-black
+      "
+    >
+      <!-- Primera vista -->
+      <h1 id="Titulo" class="text-4xl text-center mb-5">
+        Medidor ambiental en sala de clases
+      </h1>
+
+      <nav
+        class="
+          bg-blue-100
+          select-none
+          sticky
+          top-0
+          p-5
+          xl:px-32
+          2xl:px-96
+          -mx-5
+          xl:-mx-32
+          2xl:-mx-96
+        "
+      >
+        <ul class="flex justify-between font-semibold">
+          <li>
+            <a href="#Titulo"><i class="fas fa-home pr-2"></i>Inicio</a>
+          </li>
+          <li>
+            <a href="#LDR"><i class="far fa-lightbulb pr-2"></i>LDR</a>
+          </li>
+          <li>
+            <a href="#Temperatura"
+              ><i class="fas fa-temperature-low pr-2"></i>Temperatura</a
+            >
+          </li>
+          <li>
+            <a href="#Humedad"><i class="fas fa-tint pr-2"></i>Humedad</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Inicio -->
+      <div class="mb-24 lg:grid gap-4 grid-cols-2">
+        <div class="order-last">
+          <h2 class="text-2xl mt-10 mb-5 border-b-2 border-black">
+            Acerca del proyecto
+          </h2>
+          <div>
+            <p class="text-justify">
+              El objetivo que busca este proyecto es el de crear una aplicación
+              que cuente con una parte de frontend y otra de backend, la primera
+              la cual deberá mostrar la información traída desde un servidor
+              remoto, presentándola en unos gráficos sencillos, resumidos y
+              agradables a la vista del usuario, el cual podrá ver más detalles
+              de estos datos si es que lo desea. Por parte del backend este
+              cuenta con varias capas. El conjunto de estas implementaciones
+              cumplen con el propósito de enseñar y dar a entender cómo funciona
+              una aplicación que tenga varias capas de procesamiento de
+              información, las cuales van desde un arduino captando datos con
+              unos sensores, hasta un gráfico presentado en una página web.
+            </p>
+            <div class="mt-5 grid grid-cols-1 gap-3 lg:flex lg:justify-around">
+              <a
+                href="https://github.com/BastianRebolledoC/Arduino-Sensores-WEB"
+                target="_blank"
+                class="text-center text-blue-600"
+              >
+                <i class="fab fa-github"></i>
+                Codigo fuente
+              </a>
+              <a
+                href="https://github.com/BastianRebolledoC/Arduino-Web-Medidor-Ambiental"
+                class="text-center text-red-600"
+              >
+                <i class="fas fa-file-pdf"></i>
+                Informe completo proyecto
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Dejar foto del proyecto final -->
+        <div
+          class="
+            bg-white
+            shadow-xl
+            mt-5
+            py-7
+            px-3
+            rounded-xl
+            flex
+            justify-center
+          "
+        >
+          <img
+            src="img/arduino.png"
+            alt="Arduino Logo"
+            class="w-full md:w-96"
+          />
+        </div>
+      </div>
+
+      <!-- Grafico 1 -->
+      <div class="mb-24 lg:grid gap-4 grid-cols-2">
+        <div class="order-first">
+          <h3 id="LDR" class="text-2xl mt-10 mb-5 border-b-2 border-black">
+            Grafico valores LDR
+          </h3>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui ab a
+            itaque placeat assumenda ratione quaerat dolore animi libero
+            molestias? Laudantium veniam odit incidunt placeat doloribus ducimus
+            quisquam molestiae nemo.
+          </p>
+        </div>
+        <div class="bg-white p-3 mt-10 rounded-lg shadow-2xl">
+          <canvas id="chartLdr"></canvas>
+        </div>
+      </div>
+
+      <!-- Grafico 2 -->
+      <div class="mb-24 lg:grid gap-4 grid-cols-2">
+        <div class="order-last">
+          <h3
+            id="Temperatura"
+            class="text-2xl mt-10 mb-5 border-b-2 border-black"
+          >
+            Grafico valores Temperatura
+          </h3>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui ab a
+            itaque placeat assumenda ratione quaerat dolore animi libero
+            molestias? Laudantium veniam odit incidunt placeat doloribus ducimus
+            quisquam molestiae nemo.
+          </p>
+        </div>
+        <div class="bg-white p-3 mt-10 rounded-lg shadow-2xl">
+          <canvas id="chartTemperatura"></canvas>
+        </div>
+      </div>
+
+      <!-- Grafico 3 -->
+      <div class="pb-24 lg:pb-32 lg:grid gap-4 grid-cols-2">
+        <div class="order-first">
+          <h3 id="Humedad" class="text-2xl mt-10 mb-5 border-b-2 border-black">
+            Grafico valores Humedad
+          </h3>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui ab a
+            itaque placeat assumenda ratione quaerat dolore animi libero
+            molestias? Laudantium veniam odit incidunt placeat doloribus ducimus
+            quisquam molestiae nemo.
+          </p>
+        </div>
+        <div class="bg-white p-3 mt-10 rounded-lg shadow-2xl">
+          <canvas id="chartHumedad"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
